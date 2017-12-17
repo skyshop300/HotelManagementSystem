@@ -7,13 +7,16 @@ public class Staff {
 	private String stf_address;
 	private String stf_tel;
 
-	public Staff(String stf_uid, String stf_name, String stf_gender, String stf_address, String stf_tel) {
+	public Staff(String stf_name, String stf_gender, String stf_address, String stf_tel) {
 		super();
-		this.stf_uid = stf_uid;
 		this.stf_name = stf_name;
 		this.stf_gender = stf_gender;
 		this.stf_address = stf_address;
 		this.stf_tel = stf_tel;
+	}
+
+	public Staff() {
+		
 	}
 
 	public String getStf_uid() {
@@ -58,8 +61,8 @@ public class Staff {
 
 	@Override
 	public String toString() {
-		return "EmpVO [emp_uid=" + stf_uid + ", emp_name=" + stf_name + ", emp_gender=" + stf_gender
-				+ ", emp_address=" + stf_address + ", emp_tel=" + stf_tel + "]";
+		return "EmpVO [emp_uid=" + stf_uid + ", emp_name=" + stf_name + ", emp_gender=" + stf_gender + ", emp_address="
+				+ stf_address + ", emp_tel=" + stf_tel + "]";
 	}
 
 }

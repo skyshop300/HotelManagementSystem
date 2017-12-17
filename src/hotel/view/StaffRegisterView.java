@@ -9,19 +9,18 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 //************************* 회원가입 *****************************//
-public class RegisterView extends JFrame {
+public class StaffRegisterView extends JFrame {
 
-//	public JComboBox<String> combo;
 	public JTable table;
 	public JTextField textField_name, textField_tel;
-	public JComboBox<String> custGenderComboBox, resStayDateComboBox;
+	public JComboBox<String> staffGenderComboBox, resStayDateComboBox;
 	public JPanel panel;
 	public JLabel name, gender, address, tel;
 	public JButton submitButton, cancleButton;
 
-	public RegisterView() {
+	public StaffRegisterView() {
 
-		name = new JLabel("고객명");
+		name = new JLabel("직원명");
 		tel = new JLabel("연락처");
 		name.setBounds(30, 50, 50, 30);
 		tel.setBounds(30, 199, 50, 29);
@@ -57,11 +56,11 @@ public class RegisterView extends JFrame {
 		
 		
 		
-		custGenderComboBox = new JComboBox<String>();
-		custGenderComboBox.setBounds(110, 100, 110, 30);
-		panel.add(custGenderComboBox);
-		custGenderComboBox.addItem("남");
-		custGenderComboBox.addItem("여");
+		staffGenderComboBox = new JComboBox<String>();
+		staffGenderComboBox.setBounds(110, 100, 110, 30);
+		panel.add(staffGenderComboBox);
+		staffGenderComboBox.addItem("남");
+		staffGenderComboBox.addItem("여");
 		
 		resStayDateComboBox = new JComboBox<String>();
 		resStayDateComboBox.setBounds(110, 150, 110, 30);

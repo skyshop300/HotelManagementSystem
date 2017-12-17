@@ -1,10 +1,13 @@
 package hotel.dao;
 
+import java.awt.List;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import hotel.view.MainView;
 import hotel.vo.Customer;
@@ -18,6 +21,8 @@ public class HotelDAO {
 	private String username = "hotel";
     private String password = "database";
     private PreparedStatement ptmt;
+    private Statement stmt;
+    
     private ResultSet rs;
     
     Customer customer;
@@ -69,6 +74,27 @@ public class HotelDAO {
 //		}
 //		return false;
 //	}// insert
+	public ArrayList<Customer> selectCustomer() {
+		
+		ArrayList<Customer> customerList = new ArrayList<>();
+		
+		try {
+			stmt = dbTest.createStatement();
+			String sql ="select * from customers";
+			rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				customerList.add(new Customer(rs.getString("cust_name"), rs.getString("cust_gender"), rs.getString("cust_address"), rs.getString("cust_tel")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return customerList;
+	}
+	
 	
 	public boolean registerCustomer(Customer customer) {
 		
@@ -156,6 +182,52 @@ public class HotelDAO {
 		}
 		return 0;
 	}
+	
+	//고객명 중복 검사
+	public boolean checkCustDupl(String cust_name) {
+
+		try {
+			String sql = "select count(*) from customers where cust_name =?";
+			ptmt = dbTest.prepareStatement(sql);
+			ptmt.setString(1, cust_name);
+
+			rs = ptmt.executeQuery();
+			rs.next();
+			int count = rs.getInt(1);
+			if (count > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return false;
+
+	}
+	
+	//직원명 중복 검사
+	public boolean checkStfDupl(String stf_name) {
+
+		try {
+			String sql = "select count(*) from Staff where stf_name =?";
+			ptmt = dbTest.prepareStatement(sql);
+			ptmt.setString(1, stf_name);
+
+			rs = ptmt.executeQuery();
+			rs.next();
+			int count = rs.getInt(1);
+			if (count > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return false;
+
+	}// overlap
 	
 	
 //	private boolean 
