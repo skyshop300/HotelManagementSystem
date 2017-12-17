@@ -1,4 +1,4 @@
-package hotel;
+package hotel.vo;
 
 import java.util.Date;
 

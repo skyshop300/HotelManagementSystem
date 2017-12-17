@@ -1,4 +1,4 @@
-package hotel;
+package hotel.vo;
 
 public class Customer {
 	private String cust_uid;
@@ -14,6 +14,17 @@ public class Customer {
 		this.cust_gender = cust_gender;
 		this.cust_address = cust_address;
 		this.cust_tel = cust_tel;
+	}
+	
+	public Customer(String cust_name, String cust_gender, String cust_address, String cust_tel) {
+		super();
+		this.cust_name = cust_name;
+		this.cust_gender = cust_gender;
+		this.cust_address = cust_address;
+		this.cust_tel = cust_tel;
+	}
+
+	public Customer() {
 	}
 
 	public String getCust_uid() {

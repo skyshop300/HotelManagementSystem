@@ -1,4 +1,4 @@
-package hotel;
+package hotel.view;
 
 import java.util.List;
 
@@ -37,25 +37,27 @@ import javax.swing.Box;
 import javax.swing.JEditorPane;
 import javax.swing.JSplitPane;
 
-public class GUI extends JFrame {
+public class MainView extends JFrame {
 	
-	private JButton bt_select, cancelButton;
-	private JTextField cust_nameInput;
-	private JTextField res_dateField;
+	private JButton selectButton, cancelButton;
+	private JTextField custNameInput;
+	private JTextField resDateField;
 	private BevelBorder border;
 	private JLayeredPane jLayeredPane; 
-	private JComboBox<String> room_numComboBox = new JComboBox<String>();
-	private JComboBox<String> res_stayDateComboBox = new JComboBox<String>();
-	private JLabel cust_nameLabel, res_dateLabel, res_stayDateLabel, roomLabel;
+	private JComboBox<String> roomNumComboBox = new JComboBox<String>();
+	private JComboBox<String> resStayDateComboBox = new JComboBox<String>();
+	private JLabel custNameLabel, resDateLabel, resStayDateLabel, roomLabel;
 	private JTabbedPane tabbedPanel;
 	
 	private JLabel tabCustNameLabel = new JLabel("고객명");
 	private JLabel tabStaffNameLabel = new JLabel("직원명");
 	private JTextField tabCustNameInput = new JTextField();
 	private JTextField tabStaffNameInput = new JTextField();
+	
+	public JButton tabCustRegisterButton;
 	private JTextField textField;
 
-	public GUI() {
+	public MainView() {
 		 
 		setTitle("호텔 투숙 시스템");
 		getContentPane().setLayout(null);
@@ -75,70 +77,70 @@ public class GUI extends JFrame {
 		getContentPane().add(resLabel);
 		
 		jLayeredPane = new JLayeredPane();
-		cust_nameInput = new JTextField();
+		custNameInput = new JTextField();
 		
-		cust_nameLabel = new JLabel("고객명");
-		res_dateLabel = new JLabel("체크인(YYYYMMDD)");
-		res_stayDateLabel = new JLabel("박");
+		custNameLabel = new JLabel("고객명");
+		resDateLabel = new JLabel("체크인(YYYYMMDD)");
+		resStayDateLabel = new JLabel("박");
 		roomLabel = new JLabel("객실");
 		
-		bt_select = new JButton("예약 등록/변경");
+		selectButton = new JButton("예약 등록/변경");
 		cancelButton = new JButton("예약 취소");
-		res_dateField = new JTextField();
+		resDateField = new JTextField();
 		
 		
 		jLayeredPane.setBounds(35, 155, 310, 225);
 		jLayeredPane.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
 		getContentPane().add(jLayeredPane);
-		jLayeredPane.add(cust_nameLabel);
-		jLayeredPane.add(cust_nameInput);
-		jLayeredPane.add(res_dateLabel);
-		jLayeredPane.add(res_stayDateLabel);
-		jLayeredPane.add(res_stayDateComboBox);
+		jLayeredPane.add(custNameLabel);
+		jLayeredPane.add(custNameInput);
+		jLayeredPane.add(resDateLabel);
+		jLayeredPane.add(resStayDateLabel);
+		jLayeredPane.add(resStayDateComboBox);
 		jLayeredPane.add(roomLabel);
-		jLayeredPane.add(room_numComboBox);
-		jLayeredPane.add(bt_select);
+		jLayeredPane.add(roomNumComboBox);
+		jLayeredPane.add(selectButton);
 		jLayeredPane.add(cancelButton);
-		jLayeredPane.add(res_dateField);
+		jLayeredPane.add(resDateField);
 		
-		cust_nameLabel.setBounds(25, 25, 45, 23);
-		cust_nameInput.setBounds(160, 25, 123, 23);
-		res_dateLabel.setBounds(25, 60, 123, 23);
-		res_dateField.setBounds(160, 60, 123, 23);
-		res_stayDateLabel.setBounds(25, 92, 45, 23);
-		res_stayDateComboBox.setBounds(160, 92, 123, 23);
+		custNameLabel.setBounds(25, 25, 45, 23);
+		custNameInput.setBounds(160, 25, 123, 23);
+		resDateLabel.setBounds(25, 60, 123, 23);
+		resDateField.setBounds(160, 60, 123, 23);
+		resStayDateLabel.setBounds(25, 92, 45, 23);
+		resStayDateComboBox.setBounds(160, 92, 123, 23);
 		roomLabel.setBounds(25, 125, 45, 23);
-		room_numComboBox.setBounds(160, 124, 123, 24);
-		bt_select.setBounds(25, 173, 123, 25);
+		roomNumComboBox.setBounds(160, 124, 123, 24);
+		selectButton.setBounds(25, 173, 123, 25);
 		cancelButton.setBounds(160, 173, 123, 25);
 		
 		
-		room_numComboBox.addItem("101");
-		room_numComboBox.addItem("102");
-		room_numComboBox.addItem("103");
-		room_numComboBox.addItem("104");
-		room_numComboBox.addItem("105");
-		room_numComboBox.addItem("106");
-		room_numComboBox.addItem("107");
-		room_numComboBox.addItem("108");
-		room_numComboBox.addItem("109");
-		room_numComboBox.addItem("110");
-		room_numComboBox.addItem("201");
-		room_numComboBox.addItem("202");
-		room_numComboBox.addItem("203");
-		room_numComboBox.addItem("204");
-		room_numComboBox.addItem("205");
-		room_numComboBox.addItem("206");
-		room_numComboBox.addItem("207");
-		room_numComboBox.addItem("208");
-		room_numComboBox.addItem("209");
-		room_numComboBox.addItem("210");
+		roomNumComboBox.addItem("101");
+		roomNumComboBox.addItem("102");
+		roomNumComboBox.addItem("103");
+		roomNumComboBox.addItem("104");
+		roomNumComboBox.addItem("105");
+		roomNumComboBox.addItem("106");
+		roomNumComboBox.addItem("107");
+		roomNumComboBox.addItem("108");
+		roomNumComboBox.addItem("109");
+		roomNumComboBox.addItem("110");
+		roomNumComboBox.addItem("201");
+		roomNumComboBox.addItem("202");
+		roomNumComboBox.addItem("203");
+		roomNumComboBox.addItem("204");
+		roomNumComboBox.addItem("205");
+		roomNumComboBox.addItem("206");
+		roomNumComboBox.addItem("207");
+		roomNumComboBox.addItem("208");
+		roomNumComboBox.addItem("209");
+		roomNumComboBox.addItem("210");
 		
-		res_stayDateComboBox.addItem("1박");
-		res_stayDateComboBox.addItem("2박");
-		res_stayDateComboBox.addItem("3박");
-		res_stayDateComboBox.addItem("4박");
-		res_stayDateComboBox.addItem("5박");
+		resStayDateComboBox.addItem("1박");
+		resStayDateComboBox.addItem("2박");
+		resStayDateComboBox.addItem("3박");
+		resStayDateComboBox.addItem("4박");
+		resStayDateComboBox.addItem("5박");
 		
 	
 		
@@ -271,7 +273,7 @@ public class GUI extends JFrame {
 		tabCustNameLabel.setBounds(60, 50, 40, 15); 
 		tabCustNameInput.setColumns(10);
 		
-		JButton tabCustRegisterButton = new JButton("회원가입");
+		tabCustRegisterButton = new JButton("회원가입");
 		tabCustRegisterButton.setBounds(45, 100, 100, 25);
 		customerPanel.add(tabCustRegisterButton);
 		
@@ -361,4 +363,5 @@ public class GUI extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	
 	}
+	
 }

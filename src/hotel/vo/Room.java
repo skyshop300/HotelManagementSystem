@@ -1,4 +1,4 @@
-package hotel;
+package hotel.vo;
 
 public class Room {
 	private int room_number;
